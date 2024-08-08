@@ -4,7 +4,7 @@ import { BalanceWrapper, Card, DateWrapper, Heading } from "./styles"
 import { balanceSelector } from "../../recoil/selectors/balanceSelector";
 
 
-const options = {
+const options: Intl.DateTimeFormatOptions = {
   weekday: 'long',
   day: '2-digit',
   month: '2-digit',
@@ -25,7 +25,7 @@ export const Account = () => {
             </DateWrapper>
         </div>
         <BalanceWrapper>
-            <Balance valor={balance}/>
+            <Balance value={balance}/>
         </BalanceWrapper>
     </Card>)
 }
