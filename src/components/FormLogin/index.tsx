@@ -5,12 +5,15 @@ import { Form, FormActions } from "../Form";
 import { FormLabel } from "../FormLabel";
 import { TextField } from "../TextField";
 import { Figure, Heading, Image } from "./styles";
-import PropTypes from 'prop-types';
 
-export const FormLogin = ({ onLogin }) => {
+interface FormLoginProps {
+    onLogin: () => void
+}
+
+export const FormLogin = ({ onLogin } : FormLoginProps) => {
     const [credentials, setCredentials] = useState({ email: '', password: '' });
 
-    const handleChange = (e) => {
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
         setCredentials((prevCredentials) => ({
             ...prevCredentials,
@@ -18,7 +21,7 @@ export const FormLogin = ({ onLogin }) => {
         }));
     };
 
-    const loginUser = (evt) => {
+    const loginUser = (evt: React.FormEvent<HTMLFormElement>) => {
         evt.preventDefault();
         console.log(credentials);
         onLogin()
@@ -67,8 +70,4 @@ export const FormLogin = ({ onLogin }) => {
             </Form>
         </section>
     );
-};
-
-FormLogin.propTypes = {
-    onLogin: PropTypes.func.isRequired,
 };

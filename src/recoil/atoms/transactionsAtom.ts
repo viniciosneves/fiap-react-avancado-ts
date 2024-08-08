@@ -1,7 +1,7 @@
 import { atom } from "recoil";
-import { Transaction } from "../../interfaces";
+import { DbTransacion } from "../../interfaces";
 
-export const transactionsState = atom<Transaction[]>({
+export const transactionsState = atom<DbTransacion[]>({
     key: 'transactions',
     default: []
 })

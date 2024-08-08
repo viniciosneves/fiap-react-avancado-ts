@@ -1,9 +1,9 @@
 import styled from "styled-components"
 import { Header } from "./components/Header"
-import { Sidebar } from "./components/Sidebar"
+import { Sidebar } from "./components/Sidebar/index.tsx"
 import { Account } from "./components/Account"
-import { TransactionForm } from "./components/TransactionForm"
-import { Statement } from "./components/Statement"
+import { TransactionForm } from "./components/TransactionForm/index.tsx"
+import { Statement } from "./components/Statement/index.tsx"
 
 const Container = styled.div`
   display: flex;

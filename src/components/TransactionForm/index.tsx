@@ -1,9 +1,9 @@
 import { useState } from "react"
-import { Card, Form, Heading, Input, Label, Select } from "./styles"
+import { Card, Form, Heading, Input, Label, Select } from "./styles.tsx"
 import { Button } from "../Button"
 import { useRecoilValue } from "recoil"
-import { transactionTypesState } from "../../recoil/atoms/transactionTypesAtom"
-import { useAddTransation } from "../../hooks/useAddTransaction"
+import { transactionTypesState } from "../../recoil/atoms/transactionTypesAtom.ts"
+import { useAddTransation } from "../../hooks/useAddTransaction.ts"
 
 export const TransactionForm = () => {
 
@@ -14,7 +14,7 @@ export const TransactionForm = () => {
 
     const transactionTypes = useRecoilValue(transactionTypesState)
 
-    const createTransacion = (evt) => {
+    const createTransacion = (evt: React.FormEvent<HTMLFormElement>) => {
         evt.preventDefault()
         addTransaction(transactionType, transactionValue)
     }

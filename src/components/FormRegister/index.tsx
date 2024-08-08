@@ -5,12 +5,15 @@ import { Form, FormActions } from "../Form";
 import { FormLabel } from "../FormLabel";
 import { TextField } from "../TextField";
 import { Figure, Heading, Image } from "./styles";
-import PropTypes from 'prop-types';
 
-export const FormRegister = ({ onRegister }) => {
+interface FormRegisterProps {
+    onRegister: () => void
+}
+
+export const FormRegister = ({ onRegister }: FormRegisterProps) => {
     const [user, setUser] = useState({ name: '', email: '', password: '' });
 
-    const handleChange = (e) => {
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
         setUser((prevUser) => ({
             ...prevUser,
@@ -18,7 +21,7 @@ export const FormRegister = ({ onRegister }) => {
         }));
     };
 
-    const registerUser = (evt) => {
+    const registerUser = (evt: React.FormEvent<HTMLFormElement>) => {
         evt.preventDefault();
         console.log(user);
         onRegister()
@@ -79,8 +82,4 @@ export const FormRegister = ({ onRegister }) => {
             </Form>
         </section>
     );
-};
-
-FormRegister.propTypes = {
-    onRegister: PropTypes.func.isRequired,
 };

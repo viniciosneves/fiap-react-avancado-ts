@@ -4,7 +4,7 @@ import { transactionsState } from "../recoil/atoms/transactionsAtom"
 export const useAddTransation = () => {
     const setTransactions = useSetRecoilState(transactionsState)
 
-    const addTransaction = (type, value) => {
+    const addTransaction = (type: string, value: string) => {
         
         setTransactions(prevState => {
             let parsedValue = Math.abs(parseFloat(value))
